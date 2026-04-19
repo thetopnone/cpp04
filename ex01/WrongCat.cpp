@@ -17,25 +17,29 @@ WrongCat::WrongCat()
 {
 	std::cout << "WrongCat Constructor called" << std::endl;
 	type = "WrongCat";
+	brain = new Brain();
 }
 
 WrongCat::WrongCat(WrongCat const& other)
 	:WrongAnimal(other)
 {
 	std::cout << "WrongCat Copy Constructor called" << std::endl;
-	type = "wrongcat";
+	*this = other;
 }
 
 WrongCat &WrongCat::operator=(WrongCat const& other){
 	std::cout << "WrongCat Copy Assignment Operator called" << std::endl;
 
-	if (this != &other)
+	if (this != &other){
 		type = other.type;
+		brain = new Brain(*other.brain);
+	}
 	return (*this);
 }
 
 WrongCat::~WrongCat(){
 	std::cout << "WrongCat Destructor called" << std::endl;
+	delete brain;
 }
 
 void WrongCat::makeSound( void ) const{

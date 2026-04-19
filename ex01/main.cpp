@@ -16,14 +16,21 @@
 
 int	 main(){
 {	
-	Animal* dog = new Dog();
-	Animal* cat = new Cat();
+	Dog* dog1 = new Dog();
+	Dog* dog2 = new Dog(*dog1);
+	Dog dog3 = *	 dog1;
 
-	dog->setIdea("FOOOOOOOOOOD", 0);
-	std::cout << "Dog idea 0:" << dog->getIdea(0) <<std::endl;
+	std::cout << "Dog 1 idea 0: " << dog1->getIdea(0) << std::endl;
+	std::cout << "Dog 2 idea 0: " << dog2->getIdea(0) << std::endl;
+	std::cout << "Dog 3 idea 0: " << dog3.getIdea(0) << std::endl;
+	dog1->setIdea("FOOOOOOOOOOD", 0);
+	std::cout << "Dog 1 idea 0: " << dog1->getIdea(0) << std::endl;
+	std::cout << "Dog 2 idea 0: " << dog2->getIdea(0) << std::endl;
+	std::cout << "Dog 3 idea 0: " << dog3.getIdea(0) << std::endl;
 
-	delete dog;
-	delete cat;
+
+	delete dog1;
+	delete dog2;
 }
 {
 	Animal* zoo[20];
@@ -37,6 +44,13 @@ int	 main(){
 	for (int i = 0; i < 20; i++){
 		delete zoo[i];
 	}
-	return 0;
 }
+/*
+{
+	std::cout << "\n--Wrong Animal Tests--\n";
+	WrongAnimal* wrongCat = new WrongCat();
+	std::cout << "\n--Deleting Wrong Cat Will create a memory leak--\n";
+	delete wrongCat;
+}*/
+return 0;
 }

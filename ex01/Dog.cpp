@@ -22,10 +22,10 @@ Dog::Dog()
 
 Dog::Dog(Dog const& other)
 	:Animal()
+	,brain(NULL)
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
 	*this = other;
-	
 }
 
 Dog &Dog::operator=(Dog const& other){
@@ -33,6 +33,7 @@ Dog &Dog::operator=(Dog const& other){
 
 	if (this != &other){
 		type = other.type;
+		delete brain;
 		brain = new Brain(*other.brain);
 	}
 	return (*this);
