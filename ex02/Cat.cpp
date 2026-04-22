@@ -13,7 +13,7 @@
 #include "Cat.hpp"
 
 Cat::Cat()
-	:Animal()
+	:AAnimal()
 {
 	std::cout << "Cat Constructor called" << std::endl;
 	type = "Cat";
@@ -21,7 +21,7 @@ Cat::Cat()
 }
 
 Cat::Cat(Cat const& other)
-	:Animal(other)
+	:AAnimal(other)
 	,brain(NULL)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;

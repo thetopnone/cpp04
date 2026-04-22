@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akonstan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/13 16:19:32 by akonstan          #+#    #+#             */
-/*   Updated: 2026/04/13 16:19:33 by akonstan         ###   ########.fr       */
+/*   Created: 2026/04/13 16:19:25 by akonstan          #+#    #+#             */
+/*   Updated: 2026/04/13 16:19:26 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat()
-	:Animal()
+Dog::Dog()
+	:AAnimal()
 {
-	std::cout << "Cat Constructor called" << std::endl;
-	type = "Cat";
+	std::cout << "Dog Constructor called" << std::endl;
+	type = "Dog";
 	brain = new Brain();
 }
 
-Cat::Cat(Cat const& other)
-	:Animal(other)
+Dog::Dog(Dog const& other)
+	:AAnimal()
 	,brain(NULL)
 {
-	std::cout << "Cat Copy Constructor called" << std::endl;
+	std::cout << "Dog Copy Constructor called" << std::endl;
 	*this = other;
 }
 
-Cat &Cat::operator=(Cat const& other){
-	std::cout << "Cat Copy Assignment Operator called" << std::endl;
+Dog &Dog::operator=(Dog const& other){
+	std::cout << "Dog Copy Assignment Operator called" << std::endl;
 
 	if (this != &other){
 		type = other.type;
@@ -39,19 +39,19 @@ Cat &Cat::operator=(Cat const& other){
 	return (*this);
 }
 
-Cat::~Cat(){
-	std::cout << "Cat Destructor called" << std::endl;
+Dog::~Dog(){
+	std::cout << "Dog Destructor called" << std::endl;
 	delete brain;
 }
 
-void Cat::setIdea(std::string idea, int pos){
+void Dog::setIdea(std::string idea, int pos){
 	brain->setIdea(idea, pos);
 }
 
-std::string const& Cat::getIdea(int pos){
+std::string const& Dog::getIdea(int pos){
 	return (brain->getIdea(pos));
 }
 
-void Cat::makeSound( void ) const{
-	std::cout << "MEOW MEOW" << std::endl;
+void Dog::makeSound( void ) const{
+	std::cout << "WOOF WOOF" << std::endl;
 }

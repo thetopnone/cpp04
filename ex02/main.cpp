@@ -15,33 +15,21 @@
 #include "WrongCat.hpp"
 
 int	 main(){
-	{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+{
+	std::cout << "\n--Testing AAnimal Functionality--\n\n";
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
+	//i->AAnimal::makeSound();
 	std::cout << "\n--Destructors Tests--\n";
-	delete meta;
 	delete j;
 	delete i;
-
-	std::cout << "\n--Wrong Animal Tests--\n";
-	const WrongAnimal* wrong = new WrongCat();
-
-	std::cout << "\n--Type Method Tests--\n";
-	std::cout << wrong->getType() << std::endl;
-
-	std::cout << "\n--Make Sound Method Tests--\n";
-	wrong->makeSound();
-
-	std::cout << "\n--Wrong Destructors Tests--\n";
-	delete wrong;
+	std::cout << "\n--End of Testing AAnimal--\n\n";
 }
-{
+{	
 	std::cout << "\n--Deep Copy Testing--\n\n";
 	Dog* dog1 = new Dog();
 	Dog* dog2 = new Dog(*dog1);
@@ -61,7 +49,7 @@ int	 main(){
 }
 {
 	std::cout << "\n--Filled Animal Array Testing--\n\n";
-	Animal* zoo[20];
+	AAnimal* zoo[20];
 	for(int i = 0; i < 20; i++){
 		if (i < 10)
 			zoo[i] = new Dog;
@@ -74,6 +62,11 @@ int	 main(){
 	}
 	std::cout << "\n--End of Array Testing--\n\n";
 }
+/*
+{
+	AAnimal *test = new AAnimal();
+	delete test;
+}*/
 /*
 {
 	std::cout << "\n--Wrong Animal Tests--\n";
