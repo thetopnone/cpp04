@@ -1,6 +1,6 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = $(patsubst %.cpp,objs/%.o, $(SRCS))
 NAME = ex03
 

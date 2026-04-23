@@ -11,31 +11,27 @@
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria()
-	:_type(""){
-	std::cout << "AMateria Default Constructor called" << std::endl;
-}
+	:_type("")
+{}
 
 AMateria::AMateria(std::string const& type)
-	:_type(type){
-	std::cout << "AMateria Parameterized Constructor called" << std::endl;
-}
+	:_type(type)
+{}
 
 AMateria::AMateria(AMateria const& other)
-	:_type(other.getType()){
-	std::cout << "AMateria Copy Constructor called" << std::endl;
-}
+	:_type(other.getType())
+{}
 
 AMateria &AMateria::operator=(AMateria const& other){
 	if (this != &other)
-		(void)other;
+		*this = other;
 	return (*this);
 }
 
-AMateria::~AMateria(){
-	std::cout << "AMateria Destructor called" << std::endl;
-}
+AMateria::~AMateria(){}
 
 std::string const& AMateria::getType() const{
 	return (_type);

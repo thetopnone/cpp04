@@ -10,4 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Ice.hpp"
 
+Ice::Ice()
+	:AMateria("ice")
+{}
+
+Ice::Ice(Ice const& other)
+	:AMateria(other)
+{}
+
+Ice &Ice::operator=(Ice const& other){
+	if (this != &other){
+		*this = other;
+	}
+	return (*this);
+}
+
+Ice::~Ice(){}
+
+AMateria* Ice::clone() const{
+	std::cout << "Ice clone method called" << std::endl;
+	return (new Ice(*this));
+}
+
+void Ice::use(ICharacter& target){
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
